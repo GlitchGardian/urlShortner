@@ -8,13 +8,30 @@ function createShorturl() {
             const originalUrl = data.url
             const shortId = shortid.generate();
 
+            if (!originalUrl) {
+                return res.json({ "Message": "Please enter Url" })
+            }
+            else if (!shortId) {
+                res.json({ "Message": "Occuring Error in Generating Shorturl" })
+            }
+
             const ShortUrl = await urls.create({
                 url: originalUrl,
                 shortid: shortId,
                 count: 1
             })
 
-            res.status(201).json({ "ShortUrl is": `owe/${ShortUrl.shortid}` });
+            const generatedUrl = `localhost:8000/owe/${ShortUrl.shortid}`
+            console.log("Generated Short URL:", generatedUrl);
+
+            if (generatedUrl) {
+                // res.status(201).json({ "ShortUrl is": `owe/${ShortUrl.shortid}` });
+                res.render("shortner", {
+                    genshorturl: generatedUrl
+                })
+
+            }
+
         } catch (error) {
             if (error.code === 11000) {
                 res.status(400).json({ message: 'Duplicate shortId error' });

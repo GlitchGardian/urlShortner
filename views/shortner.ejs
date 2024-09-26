@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortner</title>
+</head>
+
+<body>
+
+    <form action="/shorten" method="post">
+        <label for="url">Enter Your Url </label>
+        <input type="text" id="url" name="url" required>
+        <button id="gen" type="submit">Generate</button>
+    </form>
+
+    <% if (locals.genshorturl) { %>
+        <p class="generatedUrl">
+            Your shortened URL: <a target="_blank" href="<%= genshorturl %>">
+                <%= genshorturl %>
+            </a>
+        </p>
+        <% } %>
+
+            <script>
+
+                if (performance.navigation.type === 1) {
+                    window.location.href = '/gui/short'; // Redirect when the page is reloaded
+                }
+
+            </script>
+
+</body>
+
+</html>

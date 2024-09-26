@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <h1>Signup</h1>
+    <form action="/user/signUp" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+
+        <input type="checkbox" name="condition">
+        <span>I agree with owe's <span class="underline"> Terms of Service, Privacy Policy </span> , and default
+            Notification
+            Settings.</span>
+
+        <button type="submit">Create Account</button>
+
+        <p>already have account? <span class="underline"><a href="login">Login here</a> </span></p>
+    </form>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
