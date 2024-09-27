@@ -8,8 +8,7 @@ const userRouteHandler = require('./routes/userRoutes')
 const staticRouteHandler = require('./routes/staticRoutes')
 const { restrictUsers } = require("./middlewares/userAuth")
 const url = "mongodb://localhost:27017/urlShortner"
-const port = 8000;
-
+const port = 3000;
 app.use(cookieparser())
 //Middleware to parse formdata
 app.use(express.urlencoded({ extended: false }))
